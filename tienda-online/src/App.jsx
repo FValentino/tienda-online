@@ -4,11 +4,14 @@ import './App.css'
 
 import Home from "./components/home.jsx";
 import MenuBar from './components/menu-bar.jsx';
-import Login from "./components/login.jsx"
-import SignUp from './components/sign-up.jsx';
+import Login from "./components/user/login.jsx"
+import SignUp from './components/user/sign-up.jsx';
 import Product from './components/products/show-product/show-product.jsx';
 import AddProduct from './components/products/admin-product/add-product.jsx';
 import EditProduct from './components/products/admin-product/edit-product.jsx';
+import Cart from './components/cart/cart.jsx'; 
+
+
 /**<MenuBar/>
     <Home/>
     <Login/>
@@ -19,9 +22,7 @@ function App() {
   return (
   <>
     <MenuBar/>
-    <Product/>
-    <AddProduct/>
-    <EditProduct/>
+    <Cart/>
   </>
   )
 }

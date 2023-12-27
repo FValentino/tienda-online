@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 
-import style from "./show-product.module.css"
+import style from "../../../styles/products/show-product.module.css"
 
 function Product(){
 

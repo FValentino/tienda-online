@@ -1,0 +1,11 @@
+.CartIcon{
+    width: 30px;
+    height: 30px;
+    margin-right: 16px;
+}
+.CartHeader{
+    color: black;
+}
+.CartBody{
+    height: 300px;
+}
