@@ -2,17 +2,24 @@ import React from "react"
 
 import Button from "react-bootstrap/esm/Button"
 import Card from "react-bootstrap/esm/Card"
+import Row from "react-bootstrap/esm/Row"
 
 import style from "../../../styles/products/product-card.module.css"
 
-function ProductCard(){
+function ProductCard(props){
     return (
-        <Card className={style.Card} style={{ width: '10rem' }}>
-            <Card.Img variant="top" src="https://img.freepik.com/foto-gratis/fondo-papel-rojo-elegante-fondo-escarlata-decoracion-navidena-o-textura-papel-diseno-web_166373-2152.jpg" />
+        <Card className={style.Card}>
+            <Card.Img variant="top" className="mt-2 " src={props.imagen} />
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
-                <Card.Text> $ Precio </Card.Text>
-                <Button variant="link" >watch</Button>
+                <Row className="mb-1 text-center">
+                    <Card.Title>{props.nombre}</Card.Title>
+                </Row>
+                <Row className="mb-3 text-center"> 
+                    <Card.Text> $ {props.precio} </Card.Text>
+                </Row>
+                <Row className="justify-content-center">
+                    <Button variant="primary"> watch </Button>
+                </Row>
             </Card.Body>
         </Card>
     )

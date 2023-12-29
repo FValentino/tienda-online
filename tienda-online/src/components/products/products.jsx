@@ -10,11 +10,7 @@ function Products(){
     return (
         <Container> 
             <Row className="justify-content-center">
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
-                <ProductCard/>
+                
             </Row>
         </Container>
     ); 

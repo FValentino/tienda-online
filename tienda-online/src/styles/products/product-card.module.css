@@ -1,6 +1,7 @@
 .Card{
     font-size: 12px;
     margin: 8px;
+    width: 10rem;
 }
 .Card button{
     font-size: 10px;
