@@ -1,36 +1,36 @@
 import React from "react"
+import {useFetch} from '../useFetch.js' 
 
 import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/esm/Row";
 
 import ProductCard from "./products/product-card/product-card";
 
-function Home (props){
+function Home (){
     
-    function produtosInicio(){
-        const productos = props.productos.map((product) =>{
-            return (
-                <ProductCard key={product.id} imagen={product.images[0]}  nombre={product.title} precio={product.price}  />
-            ); 
-        });
-        return productos;
+    const {data, loading, error} = useFetch('https://api.escuelajs.co/api/v1/products');
 
+    function showProducts(){
+        if (error){
+            return (<h1>ERROR: {error} </h1>);
+        }else if (loading){
+            return (<h1> Cargando... </h1>);
+        }else{
+            const productos = data.filter((product)=> !product.images[0].includes("/any"))
+            .map((product) =>{
+                return (
+                    <ProductCard key={product.id} product={product}  />
+                ); 
+            });
+            return productos;
+        }
     }
 
-    if (props.isLoading){
-        return (
-        <>
-            <h1>CARGANDO...</h1>
-        </>
-        );
-    }
-    
     return(
         <Container className="mt-2">
             <Row className="justify-content-center">   
-                {produtosInicio()}
+                {showProducts()}
             </Row>
-
         </Container>   
     )
 }
