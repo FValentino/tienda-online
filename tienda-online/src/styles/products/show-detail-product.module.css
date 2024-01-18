@@ -1,0 +1,14 @@
+p, h1, h2{
+    color:black;
+}
+
+.MainImage{
+    width: 75%;
+    margin-left: 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.SideImages{
+    width: 100%;
+}

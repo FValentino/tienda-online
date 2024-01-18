@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from "react-bootstrap/esm/Container";
 
-function Login() {
+
+function Login() {  
+
     return (
         <Container fluid="sm" className="justify-content-center w-50">
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-1" controlId="email">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email"/>
                 </Form.Group>
 
-                <Form.Group className="mb-1" controlId="email">
+                <Form.Group className="mb-1" controlId="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>

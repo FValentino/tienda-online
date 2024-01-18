@@ -10,16 +10,16 @@ import style from "../../../styles/card.module.css"
 function ProductCard(props){
     return (
         <Card className={style.Card}>
-            <Card.Img variant="top" className="mt-2 " src={props.product.images[0]} />
             <Card.Body>
-                <Row className="mb-1 text-center">
+                <Card.Img variant="top" className="mt-2 " src={props.product.images[0]} />
+                <Row className="text-center">
                     <Card.Title>{props.product.title}</Card.Title>
-                </Row>
-                <Row className="mb-1 text-center"> 
-                    <Card.Text> $ {props.product.price} </Card.Text>
                 </Row>
             </Card.Body>
             <Card.Footer>
+                <Row className="mb-2 text-center"> 
+                    <Card.Text> $ {props.product.price} </Card.Text>
+                </Row>
                 <Row className="justify-content-center">
                     <Button variant="primary"> 
                         <Link to={`/producto/${props.product.id}`}> watch </Link>

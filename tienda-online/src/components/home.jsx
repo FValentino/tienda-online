@@ -1,35 +1,30 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import {useFetch} from '../useFetch.js' 
 
 import Container from 'react-bootstrap/Container';
 import Row from "react-bootstrap/esm/Row";
 
-import ProductCard from "./products/product-card/product-card";
+import ShowProducts from "./products/show-products/show-products.jsx";
+
 
 function Home (){
-    
-    const {data, loading, error} = useFetch('https://api.escuelajs.co/api/v1/products');
 
-    function showProducts(){
-        if (error){
-            return (<h1>ERROR: {error} </h1>);
-        }else if (loading){
-            return (<h1> Cargando... </h1>);
-        }else{
-            const productos = data.filter((product)=> !product.images[0].includes("/any"))
-            .map((product) =>{
-                return (
-                    <ProductCard key={product.id} product={product}  />
-                ); 
-            });
-            return productos;
-        }
-    }
+    const [productsIni, setProductsIni] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, serError] = useState('');
+
+    useEffect(()=>{
+        fetch('https://api.escuelajs.co/api/v1/products')
+            .then( (response) => response.json() )
+            .then( (json) => setProductsIni(json) )
+            .catch( (error) => serError(error.message) )
+            .finally( setIsLoading(false) )
+    }, []);
 
     return(
         <Container className="mt-2">
-            <Row className="justify-content-center">   
-                {showProducts()}
+            <Row className="justify-content-center">  
+                <ShowProducts products={productsIni} isLoading={isLoading} error={error} />
             </Row>
         </Container>   
     )
